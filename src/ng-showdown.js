@@ -121,8 +121,8 @@ if (typeof angular !== 'undefined' && typeof showdown !== 'undefined') {
           element.html(val);
           try {
             Prism.highlightAll();
-          } catch(e) {
-            console.warn("Prism is not included, feature turned off");
+          } catch (e) {
+            console.warn('Prism is not included, feature turned off');
           }
         });
       };
