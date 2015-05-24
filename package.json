@@ -14,7 +14,7 @@
   "license": "BSD-2-Clause",
   "main": "./dist/ng-showdown.js",
   "scripts": {
-    "test": "mocha ./test/**/*.js"
+    "test": "grunt test"
   },
   "dependencies": {
     "showdown": ">1.0.0-alpha.2"
