@@ -122,7 +122,7 @@ if (typeof angular !== 'undefined' && typeof showdown !== 'undefined') {
           try {
             Prism.highlightAll();
           } catch(e) {
-            console.warn("Prism is not included, feature turned off")
+            console.warn("Prism is not included, feature turned off");
           }
         });
       };
