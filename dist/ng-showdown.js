@@ -1,4 +1,4 @@
-;/*! ng-showdown 24-05-2015 */// Conditional load for NodeJS
+;/*! ng-showdown 28-05-2015 */// Conditional load for NodeJS
 if (typeof require !== 'undefined') {
   var angular = require('angular'),
       showdown = require('showdown');
