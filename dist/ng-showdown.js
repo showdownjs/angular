@@ -1,4 +1,4 @@
-// Conditional load for NodeJS
+;/*! ng-showdown 28-05-2015 */// Conditional load for NodeJS
 if (typeof require !== 'undefined') {
   var angular = require('angular'),
       showdown = require('showdown');
@@ -147,3 +147,5 @@ if (typeof angular !== 'undefined' && typeof showdown !== 'undefined') {
 } else {
   throw new Error('ng-showdown was not loaded because one of its dependencies (AngularJS or Showdown) was not met');
 }
+
+//# sourceMappingURL=ng-showdown.js.map
