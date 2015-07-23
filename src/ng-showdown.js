@@ -122,7 +122,7 @@
             var val;
             if (typeof newValue === 'string') {
               var showdownHTML = $showdown.makeHtml(newValue);
-              val = $sce.trustAsHtml(showdownHTML);
+              val = $sce.getTrustedHtml(showdownHTML);
             } else {
               val = typeof newValue;
             }
