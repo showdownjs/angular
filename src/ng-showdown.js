@@ -11,8 +11,8 @@
       'use strict';
 
       module.provider('$showdown', ngShowdown)
-        .directive('sdModelToHtml', ['$showdown', '$sce', markdownToHtmlDirective]) //<-- DEPRECATED: will be removed in the next major version release
-        .directive('markdownToHtml', ['$showdown', '$sce', markdownToHtmlDirective])
+        .directive('sdModelToHtml', ['$showdown', '$sce', makeMarkdownToHtmlDirective('sdModelToHtml')]) //<-- DEPRECATED: will be removed in the next major version release
+        .directive('markdownToHtml', ['$showdown', '$sce', makeMarkdownToHtmlDirective('markdownToHtml')])
         .filter('sdStripHtml', ['$showdown', stripHtmlFilter]) //<-- DEPRECATED: will be removed in the next major version release
         .filter('stripHtml', ['$showdown', stripHtmlFilter]);
 
@@ -98,36 +98,39 @@
         };
       }
 
-      /**
-       * AngularJS Directive to Md to HTML transformation
-       *
-       * Usage example:
-       * <div sd-model-to-html="markdownText" ></div>
-       *
-       * @param {showdown.Converter} $showdown
-       * @param {$sce} $sce
-       * @returns {*}
-       */
-      function markdownToHtmlDirective($showdown, $sce) {
-        return {
-          restrict: 'A',
-          link: link,
-          scope: {
-            model: '=sdModelToHtml'
-          }
-        };
+      function makeMarkdownToHtmlDirective(name) {
 
-        function link(scope, element) {
-          scope.$watch('model', function (newValue) {
-            var val;
-            if (typeof newValue === 'string') {
-              var showdownHTML = $showdown.makeHtml(newValue);
-              val = $sce.getTrustedHtml(showdownHTML);
-            } else {
-              val = typeof newValue;
+        /**
+         * AngularJS Directive to Md to HTML transformation
+         *
+         * Usage example:
+         * <div sd-model-to-html="markdownText" ></div>
+         *
+         * @param {showdown.Converter} $showdown
+         * @param {$sce} $sce
+         * @returns {*}
+         */
+        return function($showdown, $sce) {
+          return {
+            restrict: 'A',
+            link: link,
+            scope: {
+              model: '=' + name
             }
-            element.html(val);
-          });
+          };
+
+          function link(scope, element) {
+            scope.$watch('model', function (newValue) {
+              var val;
+              if (typeof newValue === 'string') {
+                var showdownHTML = $showdown.makeHtml(newValue);
+                val = $sce.getTrustedHtml(showdownHTML);
+              } else {
+                val = typeof newValue;
+              }
+              element.html(val);
+            });
+          }
         }
       }
 
