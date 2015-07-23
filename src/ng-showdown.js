@@ -110,7 +110,7 @@
          * @param {$sce} $sce
          * @returns {*}
          */
-        return function($showdown, $sce) {
+        return function ($showdown, $sce) {
           return {
             restrict: 'A',
             link: link,
@@ -131,7 +131,7 @@
               element.html(val);
             });
           }
-        }
+        };
       }
 
       /**
