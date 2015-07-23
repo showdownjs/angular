@@ -2,7 +2,8 @@ describe('Showdown', function () {
   var expect = window.expect,
     showdownProvider,
     markdown = '# Title',
-    parsedHtml = '<h1 id="title">Title</h1>';
+    parsedHtml = '<h1 id="title">Title</h1>',
+    parsedHtmlSafe = '<h1>Title</h1>';
 
   beforeEach(function () {
 
@@ -36,7 +37,7 @@ describe('Showdown', function () {
 
     it('should parse markdown', function () {
       element = createDirective(markdown);
-      expect(element.html()).to.be.equal(parsedHtml);
+      expect(element.html()).to.be.equal(parsedHtmlSafe);
     });
 
     function createDirective(data, template) {
