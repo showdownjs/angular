@@ -12,7 +12,7 @@
     "web": "https://github.com/showdownjs/ng-showdown"
   },
   "license": "BSD-2-Clause",
-  "main": "./dist/ng-showdown.js",
+  "main": "./src/ng-showdown.js",
   "scripts": {
     "test": "grunt test"
   },
