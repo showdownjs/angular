@@ -1,4 +1,4 @@
-;/*! ng-showdown 19-10-2015 */
+;/*! ng-showdown 22-06-2017 */
 (function (root, factory) {
   if (typeof define === 'function' && define.amd) {
     // AMD. Register as an anonymous module.
@@ -151,6 +151,7 @@
    */
   function sdModelToHtmlDirective($showdown, $sanitize, $sce) {
     return {
+      replace: true,
       restrict: 'A',
       link: getLinkFn($showdown, $sanitize, $sce),
       scope: {
@@ -173,6 +174,7 @@
    */
   function markdownToHtmlDirective($showdown, $sanitize, $sce) {
     return {
+      replace: true,
       restrict: 'A',
       link: getLinkFn($showdown, $sanitize, $sce),
       scope: {

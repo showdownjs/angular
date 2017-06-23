@@ -150,6 +150,7 @@
    */
   function sdModelToHtmlDirective($showdown, $sanitize, $sce) {
     return {
+      replace: true,
       restrict: 'A',
       link: getLinkFn($showdown, $sanitize, $sce),
       scope: {
@@ -172,6 +173,7 @@
    */
   function markdownToHtmlDirective($showdown, $sanitize, $sce) {
     return {
+      replace: true,
       restrict: 'A',
       link: getLinkFn($showdown, $sanitize, $sce),
       scope: {
